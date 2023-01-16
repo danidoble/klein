@@ -1,5 +1,8 @@
 # Klein Upgrade Guide
 
+## 2.1.2 to 2.2.0
+
+- you need php ^8.1
 
 ## 2.1.1 to 2.1.2
 

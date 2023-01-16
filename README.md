@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/klein/klein.php.png?branch=master)](https://travis-ci.org/klein/klein.php)
 
-**klein.php** is a fast & flexible router for PHP 5.3+
+**klein.php** is a fast & flexible router for PHP 8.1+
 
 * Flexible regular expression routing (inspired by [Sinatra](http://www.sinatrarb.com/))
 * A set of [boilerplate methods](#api) for rapidly building web apps
@@ -10,7 +10,7 @@
 
 ## Getting started
 
-1. PHP 5.3.x is required
+1. PHP 8.1.x is required
 2. Install Klein using [Composer](#composer-installation) (recommended) or manually
 3. Setup [URL rewriting](https://gist.github.com/874000) so that all requests are handled by **index.php**
 4. (Optional) Throw in some [APC](http://pecl.php.net/package/APC) for good measure
