@@ -1,8 +1,13 @@
-# Klein.php
+# Klein
 
-[![Build Status](https://travis-ci.org/klein/klein.php.png?branch=master)](https://travis-ci.org/klein/klein.php)
+[![Build Status](https://travis-ci.org/danidoble/klein.png?branch=master)](https://travis-ci.org/danidoble/klein)
 
-**klein.php** is a fast & flexible router for PHP 8.1+
+__Notes:__
+
+*  This is a fork of [klein/klein.php](https://github.com/klein/klein.php)
+* This project was upgraded to PHP ^8.1
+
+**klein** is a fast & flexible router for PHP 8.1+
 
 * Flexible regular expression routing (inspired by [Sinatra](http://www.sinatrarb.com/))
 * A set of [boilerplate methods](#api) for rapidly building web apps
@@ -18,7 +23,7 @@
 ## Composer Installation
 
 1. Get [Composer](http://getcomposer.org/)
-2. Require Klein with `php composer.phar require klein/klein`
+2. Require Klein with `php composer.phar require danidoble/klein`
 3. Add the following to your application's main PHP file: `require 'vendor/autoload.php';`
 
 ## Example
@@ -420,7 +425,7 @@ See the [contributing guide](CONTRIBUTING.md) for more info
 
 ## More information
 
-See the [wiki](https://github.com/klein/klein.php/wiki) for more information
+See the [wiki](https://github.com/danidoble/klein/wiki) for more information
 
 ## Contributors
 
