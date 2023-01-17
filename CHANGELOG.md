@@ -2,9 +2,11 @@
 
 ## 2.2.0
 
-## Features
+### Compatibility
 
-- Breaking changes, project only for PHP ^8.1  
+- Breaking changes, this project is only for PHP ^8.1 (if you needed for PHP 5 or PHP 7 use the original package [klein/klein.php](https://github.com/klein/klein.php))
+- ```Exception``` was removed and now only ```Throwable``` is applied for ```try-catch```
+- Data typing for mayor of variables and return types 
 
 
 ## 2.1.2
