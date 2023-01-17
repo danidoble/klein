@@ -34,9 +34,9 @@ class Validator
     /**
      * The string to validate
      *
-     * @type string
+     * @type ?string
      */
-    protected string $str;
+    protected ?string $str;
 
     /**
      * The custom exception message to throw on validation failure
@@ -60,10 +60,10 @@ class Validator
     /**
      * Sets up the validator chain with the string and optional error message
      *
-     * @param string $str The string to validate
+     * @param string|null $str The string to validate
      * @param string|null $err The optional custom exception message to throw on validation failure
      */
-    public function __construct(string $str, string $err = null)
+    public function __construct(?string $str, string $err = null)
     {
         $this->str = $str;
         $this->err = $err;

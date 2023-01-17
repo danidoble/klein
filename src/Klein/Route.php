@@ -45,9 +45,9 @@ class Route
      * - '/posts/[:post_slug]'
      * - '/posts/[i:id]'
      *
-     * @type string
+     * @type ?string
      */
-    protected string $path;
+    protected ?string $path;
 
     /**
      * The HTTP method to match
@@ -58,25 +58,25 @@ class Route
      * - 'POST'
      * - array('GET', 'POST')
      *
-     * @type string|array
+     * @type string|array|null
      */
-    protected string|array $method;
+    protected string|array|null $method;
 
     /**
      * Whether to count this route as a match when counting total matches
      *
      * @type boolean
      */
-    protected bool $count_match;
+    protected ?bool $count_match;
 
     /**
      * The name of the route
      *
      * Mostly used for reverse routing
      *
-     * @type string
+     * @type ?string
      */
-    protected string $name;
+    protected ?string $name;
 
 
     /**
@@ -87,13 +87,18 @@ class Route
      * Constructor
      *
      * @param callable $callback
-     * @param string|null $path
-     * @param $method
-     * @param bool $count_match
-     * @param $name
+     * @param string|null|callable $path
+     * @param callable|string|null $method
+     * @param bool|null $count_match
+     * @param string|null $name
      */
-    public function __construct(callable $callback, string $path = null, $method = null, bool $count_match = true, $name = null)
-    {
+    public function __construct(
+        callable $callback,
+        callable|string|null $path = null,
+        string|array|null $method = null,
+        bool|null $count_match = true,
+        string|null $name = null
+    ) {
         // Initialize some properties (use our setters so we can validate param types)
         $this->setCallback($callback);
         $this->setPath($path);
@@ -133,9 +138,9 @@ class Route
     /**
      * Get the path
      *
-     * @return string
+     * @return ?string
      */
-    public function getPath(): string
+    public function getPath(): ?string
     {
         return $this->path;
     }
@@ -143,10 +148,10 @@ class Route
     /**
      * Set the path
      *
-     * @param string $path
+     * @param ?string $path
      * @return Route
      */
-    public function setPath(string $path): static
+    public function setPath(?string $path): static
     {
         $this->path = $path;
 
@@ -156,9 +161,9 @@ class Route
     /**
      * Get the method
      *
-     * @return string|array
+     * @return string|array|null
      */
-    public function getMethod(): array|string
+    public function getMethod(): array|string|null
     {
         return $this->method;
     }
@@ -198,7 +203,7 @@ class Route
      * @param boolean $count_match
      * @return Route
      */
-    public function setCountMatch(bool $count_match): static
+    public function setCountMatch(bool|null $count_match): static
     {
         $this->count_match = $count_match;
 
@@ -208,9 +213,9 @@ class Route
     /**
      * Get the name
      *
-     * @return string
+     * @return ?string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

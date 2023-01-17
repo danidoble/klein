@@ -60,12 +60,12 @@ class DataCollection implements IteratorAggregate, ArrayAccess, Countable
      * If an optional mask array is passed, this only
      * returns the keys that match the mask
      *
-     * @param array|null $mask The parameter mask array
+     * @param array|null|string $mask The parameter mask array
      * @param boolean $fill_with_nulls Whether to fill the returned array with
      *  values to match the given mask, even if they don't exist in the collection
      * @return array
      */
-    public function keys(array $mask = null, bool $fill_with_nulls = true): array
+    public function keys(array|null|string $mask = null, bool $fill_with_nulls = true): array
     {
         if (null !== $mask) {
             // Support a more "magical" call
@@ -102,12 +102,12 @@ class DataCollection implements IteratorAggregate, ArrayAccess, Countable
      * If an optional mask array is passed, this only
      * returns the keys that match the mask
      *
-     * @param array|null $mask The parameter mask array
+     * @param array|null|string $mask The parameter mask array
      * @param boolean $fill_with_nulls Whether to fill the returned array with
      *  values to match the given mask, even if they don't exist in the collection
      * @return array
      */
-    public function all(array $mask = null, bool $fill_with_nulls = true): array
+    public function all(array|null|string $mask = null, bool $fill_with_nulls = true): array
     {
         if (null !== $mask) {
             // Support a more "magical" call

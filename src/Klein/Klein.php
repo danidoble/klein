@@ -335,13 +335,16 @@ class Klein
      * });
      * </code>
      *
-     * @param array|string|callable $method HTTP Method to match
+     * @param array|string|callable|null $method HTTP Method to match
      * @param string|callable $path Route URI path to match
      * @param callable|null $callback Callable callback method to execute on route match
      * @return Route
      */
-    public function respond(array|string|callable $method, string|callable $path = '*', ?callable $callback = null): Route
-    {
+    public function respond(
+        array|string|callable|null $method,
+        string|callable|null $path = '*',
+        ?callable $callback = null
+    ): Route {
         // Get the arguments in a very loose format
         extract($this->parseLooseArgumentOrder(func_get_args()));
 
@@ -883,10 +886,10 @@ class Klein
     /**
      * Adds an error callback to the stack of error handlers
      *
-     * @param callable $callback The callable function to execute in the error handling chain
+     * @param callable|string $callback The callable function to execute in the error handling chain
      * @return void
      */
-    public function onError(callable $callback): void
+    public function onError(callable|string $callback): void
     {
         $this->error_callbacks->push($callback);
     }
@@ -1006,10 +1009,10 @@ class Klein
      * loop has handled all the route callbacks and before the response
      * is sent
      *
-     * @param callable $callback The callable function to execute in the after route chain
+     * @param callable|string $callback The callable function to execute in the after route chain
      * @return void
      */
-    public function afterDispatch(callable $callback): void
+    public function afterDispatch(callable|string $callback): void
     {
         $this->after_filter_callbacks->enqueue($callback);
     }
