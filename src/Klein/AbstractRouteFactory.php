@@ -60,10 +60,10 @@ abstract class AbstractRouteFactory
     /**
      * Sets the value of namespace
      *
-     * @param string $namespace The namespace from which to collect the Routes under
+     * @param ?string $namespace The namespace from which to collect the Routes under
      * @return AbstractRouteFactory
      */
-    public function setNamespace(string $namespace): static
+    public function setNamespace(?string $namespace): static
     {
         $this->namespace = $namespace;
 

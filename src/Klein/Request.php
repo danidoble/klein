@@ -30,7 +30,7 @@ class Request
      *
      * @type ?string
      */
-    protected ?string $id;
+    protected ?string $id = null;
 
     /**
      * GET (query) parameters

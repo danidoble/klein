@@ -29,37 +29,37 @@ class ServiceProvider
     /**
      * The Request instance containing HTTP request data and behaviors
      *
-     * @type Request
+     * @type ?Request
      */
-    protected Request $request;
+    protected ?Request $request = null;
 
     /**
      * The Response instance containing HTTP response data and behaviors
      *
-     * @type AbstractResponse
+     * @type ?AbstractResponse
      */
-    protected AbstractResponse $response;
+    protected ?AbstractResponse $response = null;
 
     /**
      * The id of the current PHP session
      *
      * @type string|boolean
      */
-    protected string|bool $session_id;
+    protected string|bool $session_id = false;
 
     /**
      * The view layout
      *
      * @type ?string
      */
-    protected ?string $layout;
+    protected ?string $layout = null;
 
     /**
      * The view to render
      *
      * @type string
      */
-    protected string $view;
+    protected string $view = '';
 
     /**
      * Shared data collection
@@ -280,9 +280,9 @@ class ServiceProvider
      * Calling with an argument, however, sets the layout to what was provided by the argument.
      *
      * @param string|null $layout The layout of the view
-     * @return string|ServiceProvider
+     * @return string|ServiceProvider|null
      */
-    public function layout(string $layout = null): string|static
+    public function layout(string $layout = null): string|ServiceProvider|null
     {
         if (null !== $layout) {
             $this->layout = $layout;
@@ -364,11 +364,11 @@ class ServiceProvider
     /**
      * Start a validator chain for the specified string
      *
-     * @param string $string The string to validate
+     * @param string|null $string The string to validate
      * @param string|null $err The custom exception message to throw
      * @return Validator
      */
-    public function validate(string $string, string $err = null): Validator
+    public function validate(?string $string, ?string $err = null): Validator
     {
         return new Validator($string, $err);
     }

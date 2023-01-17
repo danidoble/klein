@@ -50,10 +50,10 @@ class RouteFactory extends AbstractRouteFactory
      * Quick check to see whether to count the route
      * as a match when counting total matches
      *
-     * @param string $path
+     * @param ?string $path
      * @return boolean
      */
-    protected function shouldPathStringCauseRouteMatch(string $path): bool
+    protected function shouldPathStringCauseRouteMatch(?string $path): bool
     {
         // Only consider a request to be matched when not using 'matchall'
         return !$this->pathIsNull($path);
@@ -115,14 +115,19 @@ class RouteFactory extends AbstractRouteFactory
      * Build a Route instance
      *
      * @param callable $callback Callable callback method to execute on route match
-     * @param string $path Route URI path to match
-     * @param string|array $method HTTP Method to match
+     * @param null|string $path Route URI path to match
+     * @param null|string|array $method HTTP Method to match
      * @param boolean $count_match Whether to count the route as a match when counting total matches
-     * @param string $name The name of the route
+     * @param null|string $name The name of the route
      * @return Route
      */
-    public function build(callable $callback, $path = null, $method = null, bool $count_match = true, $name = null): Route
-    {
+    public function build(
+        callable $callback,
+        ?string $path = null,
+        null|array|string $method = null,
+        bool $count_match = true,
+        ?string $name = null
+    ): Route {
         return new Route(
             $callback,
             $this->preprocessPathString($path),

@@ -45,7 +45,7 @@ abstract class AbstractResponse
      *
      * @type string
      */
-    protected string $body;
+    protected string $body = '';
 
     /**
      * HTTP response status
@@ -100,11 +100,11 @@ abstract class AbstractResponse
      *
      * Create a new AbstractResponse object with a dependency injected Headers instance
      *
-     * @param string $body The response body's content
+     * @param string|null $body The response body's content
      * @param int|null $status_code The status code
      * @param array $headers The response header "hash"
      */
-    public function __construct(string $body = '', int $status_code = null, array $headers = array())
+    public function __construct(string|null $body = '', int $status_code = null, array $headers = array())
     {
         $status_code = $status_code ?: static::$default_status_code;
 
@@ -236,10 +236,10 @@ abstract class AbstractResponse
     /**
      * Append a string to the response's content body
      *
-     * @param string $content The string to append
+     * @param ?string $content The string to append
      * @return AbstractResponse
      */
-    public function append(string $content): static
+    public function append(?string $content): static
     {
         // Require that the response be unlocked before changing it
         $this->requireUnlocked();

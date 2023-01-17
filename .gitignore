@@ -10,3 +10,5 @@ report/
 
 # Auto-generated code from PHPStorm
 .idea
+
+.phpunit.result.cache
